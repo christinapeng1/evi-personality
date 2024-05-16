@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "National Park";
+  src: url("/fonts/NationalPark-VariableVF.woff") format("woff");
+}
+
+body, html {
+  font-family: "National Park", sans-serif;
+}
+
+.main-container {
+  font-family: "National Park";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./src/assets/pastel_circles.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text {
+  padding: 10px;
+  font-family: "National Park", sans-serif; 
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+  background-color: #9ad2b8;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  height: 50vh;
+  background-color: #a8e2c7f8;
+  border-radius: 20px;
+}
+
+.about-body {
+  display: flex;
+  font-family: "National Park", sans-serif;
+  font-size: 1.5vw;
+  flex-direction: column;
+  padding: 0.7vw 3vw;
+}
+
+.about-header {
+  display: flex;
+  font-family: "National Park", sans-serif;
+  font-size: 2vw;
+  flex-direction: column;
+  padding: 1.5vw 2vw;
+  font-weight: bold;
+  text-align: center;
+}
+
