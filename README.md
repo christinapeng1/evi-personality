@@ -1,4 +1,4 @@
-# EVI Personality: a React application for determining personality types
+# EVI Personality: React application
 
 ## Description
 
@@ -7,14 +7,6 @@ Empathic Voice Interface (EVI). Utilizing a unique system prompt, EVI takes the
 role of an AI assistant specialized in the Myers-Briggs Type Indicator (MBTI).
 
 This project leverages [Hume's React SDK](https://github.com/HumeAI/empathic-voice-api-js/tree/main/packages/react), a straightforward React interface, designed to seamlessly integrate EVI capabilities into React applications.
-
-## Table of Contents
-
-- [EVI brainstorming team example](#evi-brainstorming-team-example)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Setup](#setup)
-  - [Usage](#usage)
 
 ## Setup
 
