@@ -71,7 +71,7 @@ const ChatStage: React.FC = () => {
               </React.Fragment>
             );
           })
-          .exhaustive()};
+          .exhaustive()}
       </div>
       <button
         onClick={() => handleConnect()}
