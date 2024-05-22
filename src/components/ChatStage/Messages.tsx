@@ -4,8 +4,8 @@ import "../../Messages.css"
 
 export default function Controls() {
   const { messages } = useVoice();
-  const [ topEmotions, setTopEmotions ] = useState([])
-  const [ currentTop3Emotions, setCurrentTop3Emotions] = useState([]);
+  const [ topEmotions, setTopEmotions ] = useState<[string, number][]>([])
+  const [ currentTop3Emotions, setCurrentTop3Emotions] = useState<[string, number][]>([]);
 
   useEffect(() => {
     const chatElement = document.getElementById('chat-container');
@@ -23,28 +23,25 @@ export default function Controls() {
 
   //set top overall top emotions
   useEffect(() => {
-    messages.forEach((msg) => {
-      if (msg.type === "user_message") {
-        const scoresArray = Object.entries(msg.models.prosody.scores);
+    const latestMessage = messages[messages.length - 1]
+    if (latestMessage.type === "user_message" && latestMessage.models.prosody) {
+        const scoresArray = Object.entries(latestMessage.models.prosody.scores);
         scoresArray.sort((a, b) => (b[1] as number) - (a[1] as number));
         setTopEmotions((prevTopEmotions) => [...prevTopEmotions, scoresArray[0]]);
-        console.log(topEmotions);
+        console.log("overall top emotions" + topEmotions);
       }
-    });
   }, [messages]);
 
   //set current top 3 emotions the user is experiencing
   useEffect(() => {
-    messages.forEach((msg) => {
-      if (msg.type === "user_message") {
-        const scoresArray = Object.entries(msg.models.prosody.scores);
+    const latestMessage = messages[messages.length - 1];
+    if (latestMessage.type === "user_message" && latestMessage.models.prosody) {
+        const scoresArray = Object.entries(latestMessage.models.prosody.scores);
         scoresArray.sort((a, b) => (b[1] as number) - (a[1] as number));
         const top3Scores = scoresArray.slice(0, 3);
         setCurrentTop3Emotions(top3Scores);
         console.log(currentTop3Emotions);
-      }
-    });
-  }, [messages]);
+    }}, [messages]);
 
   return (
     <div className="chat-container" id="chat-container">
