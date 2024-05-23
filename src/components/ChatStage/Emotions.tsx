@@ -24,8 +24,22 @@ export default function Emotions() {
         latestMessage.models.prosody.scores)
       .map(([name, value]) => ({name, value: Number(value)}))
       .sort((a, b) => (b.value as number) - (a.value as number));
-      setTopEmotions((prevTopEmotions) => [...prevTopEmotions, scoresArray[0]]);
-      console.log(topEmotions);
+      const topEmotion = scoresArray[0];
+      
+      setTopEmotions((prevTopEmotions) => {
+        const TopEmotionsArr = [ ...prevTopEmotions];
+        const emotionIndex = TopEmotionsArr.findIndex(
+          (emotion) => emotion.name === topEmotion.name
+        );
+
+        if (emotionIndex > -1) {
+          TopEmotionsArr[emotionIndex].value += topEmotion.value;
+        } else {
+          TopEmotionsArr.push(topEmotion);
+        }
+
+        return TopEmotionsArr;
+        });
     }
   }, [messages]);
 

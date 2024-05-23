@@ -40,17 +40,16 @@ const ChatStage: React.FC = () => {
               <div className="about-container">
                 <div className="about-header">EVI Personality</div>
                 <div className="about-body">
-                  {' '}
-                  Chat with an empathic voice assistant specialized
-                  in the Myers-Briggs Type Indicator (MBTI). Built using Hume
-                  AI's Empathic Voice Interface (EVI), the AI assistant will ask you
+                  {" "}
+                  Chat with an empathic voice assistant specialized in the
+                  Myers-Briggs Type Indicator (MBTI). Built using Hume AI's
+                  Empathic Voice Interface (EVI), the AI assistant will ask you
                   a few questions about your responses to different situations,
-                  which will be used to determine your four-letter MBTI personality
-                  type.
-                </div>
-                <div className="about-body">
-                  Begin your conversation in a quiet
-                  space. When you're ready, click 'Start chat!' to begin.
+                  which will be used to determine your four-letter MBTI
+                  personality type. <br />
+                  <br />
+                  Begin your conversation in a quiet space. When you're ready,
+                  click 'Start chat!' to begin.
                 </div>
               </div>
             );
@@ -61,12 +60,12 @@ const ChatStage: React.FC = () => {
                 <h1 className="absolute top-6 text-4xl font-bold">
                   EVI Personality
                 </h1>
-                <h1 className="intro-text">
-                  {" "}
-                  Please begin the conversation in a quiet space. Start by
-                  saying 'hello!'
-                </h1>
                 <div className="chat-wrapper">
+                  <h1 className="intro-text">
+                    {" "}
+                    Please begin the conversation in a quiet space. Start by
+                    saying 'hello!'
+                  </h1>
                   <div className="controls">
                     <Controls />
                   </div>

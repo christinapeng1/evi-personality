@@ -33,10 +33,11 @@ body, html {
 .intro-text {
   padding: 10px;
   font-family: "National Park", sans-serif; 
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   font-weight: bold;
   text-align: left;
+  width: 100%;
   background-color: #9ad2b8;
 }
 
@@ -44,7 +45,7 @@ body, html {
   display: flex;
   flex-direction: column;
   width: 45vw;
-  height: 50vh;
+  height: 60vh;
   background-color: #a8e2c7f8;
   border-radius: 20px;
 }
