@@ -2,6 +2,7 @@ import { useVoice } from '@humeai/voice-react';
 import React from 'react';
 import { match } from 'ts-pattern';
 import Controls from './Messages';
+import Emotions from './Emotions';
 import "../../Messages.css"
 
 /**
@@ -61,12 +62,17 @@ const ChatStage: React.FC = () => {
                   EVI Personality
                 </h1>
                 <h1 className="intro-text">
-                  {' '}
+                  {" "}
                   Please begin the conversation in a quiet space. Start by
                   saying 'hello!'
                 </h1>
                 <div className="chat-wrapper">
-                  <Controls />
+                  <div className="controls">
+                    <Controls />
+                  </div>
+                  <div className="emotion-chart">
+                    <Emotions />
+                  </div>
                 </div>
               </React.Fragment>
             );

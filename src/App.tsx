@@ -23,8 +23,8 @@ function App() {
   return (
     <>
       <VoiceProvider
-        auth={{ type: 'accessToken', value: accessToken }}
-        configId={'c9619abc-9d48-4914-b708-005a34734091'} // set your configId here
+        auth={{ type: "accessToken", value: accessToken }}
+        configId={"2320bdd8-1191-46a0-b6bb-46759b02468e"} // set your configId here
         onMessage={(message: unknown) => console.log(message)}
       >
         <ChatStage />

@@ -52,9 +52,11 @@ body, html {
 .about-body {
   display: flex;
   font-family: "National Park", sans-serif;
-  font-size: 1.5vw;
+  font-size: clamp(1vw, 1.5vw, 2vw);
   flex-direction: column;
   padding: 0.7vw 3vw;
+  overflow: auto;
+  flex-grow: 1;
 }
 
 .about-header {

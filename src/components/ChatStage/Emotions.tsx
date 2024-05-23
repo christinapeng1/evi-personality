@@ -1,0 +1,71 @@
+import { useVoice } from "@humeai/voice-react";
+import { useEffect, useState } from "react";
+import "../../Messages.css";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
+import { emotionColorMap } from "@/assets/EmotionColors";
+
+type EmotionScore = {
+  name: string;
+  value: number;
+};
+
+export default function Emotions() {
+  const { messages } = useVoice();
+  const [topEmotions, setTopEmotions] = useState<EmotionScore[]>([]);
+  const [currentTop3Emotions, setCurrentTop3Emotions] = useState<
+    [name: string, value: number][]
+  >([]);
+
+  //set top overall top emotions
+  useEffect(() => {
+    const latestMessage = messages[messages.length - 1];
+    if (latestMessage.type === "user_message" && latestMessage.models.prosody) {
+      const scoresArray: EmotionScore[] = Object.entries(
+        latestMessage.models.prosody.scores)
+      .map(([name, value]) => ({name, value: Number(value)}))
+      .sort((a, b) => (b.value as number) - (a.value as number));
+      setTopEmotions((prevTopEmotions) => [...prevTopEmotions, scoresArray[0]]);
+      console.log(topEmotions);
+    }
+  }, [messages]);
+
+  //set current top 3 emotions the user is experiencing
+  useEffect(() => {
+    const latestMessage = messages[messages.length - 1];
+    if (latestMessage.type === "user_message" && latestMessage.models.prosody) {
+      const scoresArray: [string, number][] = Object.entries(
+        latestMessage.models.prosody.scores
+      );
+      scoresArray.sort((a, b) => (b[1] as number) - (a[1] as number));
+      const top3Scores = scoresArray.slice(0, 3);
+      setCurrentTop3Emotions(top3Scores);
+      console.log(currentTop3Emotions);
+    }
+  }, [messages]);
+
+  return (
+    <ResponsiveContainer width="100%" height={400}>
+      <PieChart width={30} height={30}>
+        <Pie
+          data={topEmotions}
+          isAnimationActive={true}
+          cx="50%"
+          cy="50%"
+          innerRadius={50}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+          {topEmotions.map((emotion) => (
+            <Cell
+              key={`cell-${emotion}`}
+              fill={emotionColorMap[emotion.name]}
+            />
+          ))}
+        </Pie>
+        <Tooltip />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+}
