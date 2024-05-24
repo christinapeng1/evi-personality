@@ -18,9 +18,9 @@ body, html {
 
 .chat-container {
   display: flex;
-  width: 90vw;
+  width: 90svw;
   flex-direction: column;
-  height: 63vh;
+  height: 63svh;
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;

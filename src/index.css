@@ -53,7 +53,7 @@ body, html {
 .about-body {
   display: flex;
   font-family: "National Park", sans-serif;
-  font-size: clamp(1vw, 1.5vw, 2vw);
+  font-size: clamp(0.5rem, 1vw + 0.5rem, 2rem);
   flex-direction: column;
   padding: 0.7vw 3vw;
   overflow: auto;
@@ -63,7 +63,7 @@ body, html {
 .about-header {
   display: flex;
   font-family: "National Park", sans-serif;
-  font-size: 2vw;
+  font-size: clamp(0.5rem, 1vw + 0.5rem, 2rem);
   flex-direction: column;
   padding: 1.5vw 2vw;
   font-weight: bold;
